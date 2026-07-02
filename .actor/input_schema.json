@@ -1,0 +1,24 @@
+{
+    "title": "WordPress Plugin & Theme Detector Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "urls": {
+            "title": "URLs to Scan",
+            "type": "array",
+            "description": "List of WordPress websites you want to detect plugins and themes for.",
+            "editor": "requestListSources",
+            "default": [{"url": "https://techcrunch.com"}],
+            "prefill": [{"url": "https://techcrunch.com"}]
+        },
+        "deepCrawl": {
+            "title": "Deep Crawl",
+            "type": "boolean",
+            "description": "If enabled, the actor will crawl up to 5 internal pages per domain to find plugins that only load on specific pages (like checkout forms). If disabled, it only scans the homepage.",
+            "editor": "checkbox",
+            "default": false,
+            "prefill": false
+        }
+    },
+    "required": ["urls"]
+}
