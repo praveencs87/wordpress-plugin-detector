@@ -1,3 +1,4 @@
+import { armKillSwitch, disarmKillSwitch } from './utils/timeoutManager.js';
 import { Actor } from 'apify';
 import { CheerioCrawler, log, enqueueLinks } from 'crawlee';
 
@@ -91,7 +92,9 @@ try {
     
     const initialRequests = urls.map(u => ({ url: u.url || u, userData: { label: 'START' } }));
     await crawler.addRequests(initialRequests);
+    armKillSwitch(crawler);
     await crawler.run();
+    disarmKillSwitch();
 
     let analyzedCount = 0;
 

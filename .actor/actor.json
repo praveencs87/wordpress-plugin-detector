@@ -6,8 +6,8 @@
     "version": "0.0",
     "input": "./input_schema.json",
     "dockerfile": "../Dockerfile",
-    "minMemoryMbytes": 256,
-    "maxMemoryMbytes": 1024,
+    "minMemoryMbytes": 1024,
+    "maxMemoryMbytes": 4096,
     "pricingModel": "PAY_PER_EVENT",
     "pricingEvents": [
         {
@@ -19,6 +19,24 @@
             "eventName": "website-analyzed",
             "pricePerEvent": 0.0002,
             "description": "Charged per website successfully analyzed"
+        },
+        {
+            "eventName": "lead-extracted",
+            "pricePerEvent": 0.005,
+            "description": "Charged per lead extracted"
         }
-    ]
+    ],
+    "isPublic": true,
+    "seoTitle": "WordPress Plugin & Theme Detector | Apify Actor",
+    "seoDescription": "Instantly detect the active WordPress theme and plugins used on any website. Essential for competitor analysis and lead generation.",
+    "categories": [
+        "BUSINESS",
+        "DATA_EXTRACTION",
+        "LEAD_GENERATION"
+    ],
+    "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 1800,
+        "memoryMbytes": 4096
+    }
 }
